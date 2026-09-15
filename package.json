@@ -1,0 +1,15 @@
+{
+  "name": "dwg-studio",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Leitor web de arquivos DWG com backend Node.js",
+  "type": "module",
+  "scripts": {
+    "start": "node server/index.js",
+    "dev": "node --watch server/index.js"
+  },
+  "dependencies": {
+    "express": "^5.1.0",
+    "multer": "^2.0.2"
+  }
+}

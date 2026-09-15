@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#101a1c" />
+    <title>DWG Studio</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="/styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <a class="brand" href="/" aria-label="DWG Studio início"><span class="brand-mark">DW</span><span>DWG Studio</span></a>
+      <div class="topbar-status"><span class="status-dot"></span> leitor local ativo <span class="status-separator"></span> v1.0</div>
+    </header>
+
+    <main class="shell">
+      <section class="intro">
+        <div>
+          <p class="eyebrow">WORKSPACE / ARQUIVOS TÉCNICOS</p>
+          <h1>Seu desenho, em foco.</h1>
+          <p class="intro-copy">Abra um arquivo DWG, leia seus dados principais e prepare a próxima etapa do projeto.</p>
+        </div>
+        <div class="intro-code" aria-hidden="true"><span>01</span><span>DWG</span><span>→</span><span>READ</span></div>
+      </section>
+
+      <section class="workspace" aria-label="Leitor DWG">
+        <aside class="sidebar">
+          <div class="sidebar-heading"><span>ARQUIVO ATUAL</span><span class="file-index">01</span></div>
+          <div class="file-card empty" id="file-card">
+            <div class="file-icon">DWG</div>
+            <div>
+              <strong id="file-name">Nenhum arquivo</strong>
+              <span id="file-status">Aguardando upload</span>
+            </div>
+          </div>
+          <dl class="metadata" id="metadata">
+            <div><dt>Formato</dt><dd>--</dd></div>
+            <div><dt>Versão</dt><dd>--</dd></div>
+            <div><dt>Tamanho</dt><dd>--</dd></div>
+            <div><dt>Assinatura</dt><dd>--</dd></div>
+          </dl>
+          <div class="sidebar-foot"><span class="lock">◈</span> Processamento local<br /><span>Seu arquivo não sai deste servidor.</span></div>
+        </aside>
+
+        <div class="viewer-panel">
+          <div class="viewer-toolbar">
+            <div class="tabs" role="tablist" aria-label="Modo de visualização">
+              <button class="tab active" data-view="drawing" role="tab" aria-selected="true">Desenho</button>
+              <button class="tab" data-view="info" role="tab" aria-selected="false">Informações</button>
+            </div>
+            <div class="toolbar-actions"><button class="tool-button" title="Ajustar à tela" aria-label="Ajustar à tela">⌗</button><button class="tool-button" title="Mais opções" aria-label="Mais opções">•••</button></div>
+          </div>
+          <div class="viewer" id="viewer">
+            <div class="grid-lines"></div>
+            <div class="crosshair horizontal"></div><div class="crosshair vertical"></div>
+            <div class="drawing-placeholder" id="drawing-placeholder">
+              <div class="blueprint"><span class="line line-a"></span><span class="line line-b"></span><span class="line line-c"></span><span class="circle"></span><span class="dimension top">12400</span><span class="dimension side">6800</span></div>
+              <p>Pré-visualização geométrica<br /><span>disponível após leitura do desenho</span></p>
+            </div>
+            <div class="info-view hidden" id="info-view"><span class="info-kicker">STATUS DO LEITOR</span><h2>Arquivo reconhecido.</h2><p>O cabeçalho foi validado e seus metadados estão disponíveis no painel lateral. A renderização completa da geometria requer uma etapa de conversão para DXF ou SVG.</p><div class="info-note">Compatível com cabeçalhos AC10xx</div></div>
+            <div class="coordinates">X 0000.00 &nbsp;&nbsp; Y 0000.00 <span>MODEL SPACE</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="upload-strip"><div><span class="upload-label">IMPORTAR DESENHO</span><h2>Comece com um arquivo DWG</h2></div><label class="upload-button"><span>+</span> Selecionar arquivo<input id="file-input" type="file" accept=".dwg,application/acad,application/octet-stream" /></label><p class="upload-hint">Formatos aceitos: .DWG · máximo 100 MB</p></section>
+      <p class="message" id="message" role="status"></p>
+    </main>
+    <script src="/app.js"></script>
+  </body>
+</html>
