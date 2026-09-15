@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="/styles.css" />
+    <link rel="stylesheet" href="/metadata.css" />
   </head>
   <body>
     <header class="topbar">
@@ -60,9 +61,22 @@
               <div class="blueprint"><span class="line line-a"></span><span class="line line-b"></span><span class="line line-c"></span><span class="circle"></span><span class="dimension top">12400</span><span class="dimension side">6800</span></div>
               <p>Pré-visualização geométrica<br /><span>disponível após leitura do desenho</span></p>
             </div>
-            <div class="info-view hidden" id="info-view"><span class="info-kicker">STATUS DO LEITOR</span><h2>Arquivo reconhecido.</h2><p>O cabeçalho foi validado e seus metadados estão disponíveis no painel lateral. A renderização completa da geometria requer uma etapa de conversão para DXF ou SVG.</p><div class="info-note">Compatível com cabeçalhos AC10xx</div></div>
+            <div class="info-view hidden" id="info-view"><span class="info-kicker">STATUS DO LEITOR</span><h2>Arquivo reconhecido.</h2><p>O cabeçalho foi validado e os dados do projeto estão na tabela abaixo do desenho. A renderização completa da geometria requer conversão para DXF ou SVG.</p><div class="info-note">Compatível com cabeçalhos AC10xx</div></div>
             <div class="coordinates">X 0000.00 &nbsp;&nbsp; Y 0000.00 <span>MODEL SPACE</span></div>
           </div>
+          <section class="project-table-panel" aria-labelledby="project-table-title">
+            <div class="project-table-heading"><div><span class="info-kicker">DADOS DO PROJETO</span><h2 id="project-table-title">Metadados do arquivo</h2></div><span class="table-status" id="table-status">AGUARDANDO ARQUIVO</span></div>
+            <table class="project-table" aria-label="Metadados do arquivo DWG">
+              <tbody id="project-metadata">
+                <tr><th>Projeto</th><td>Aguardando arquivo</td></tr>
+                <tr><th>Versão do AutoCAD</th><td>--</td></tr>
+                <tr><th>Formato</th><td>--</td></tr>
+                <tr><th>Tamanho</th><td>--</td></tr>
+                <tr><th>Assinatura</th><td>--</td></tr>
+                <tr><th>Status</th><td>Não lido</td></tr>
+              </tbody>
+            </table>
+          </section>
         </div>
       </section>
 

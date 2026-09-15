@@ -4,6 +4,27 @@ const fileCard = document.querySelector('#file-card');
 const fileName = document.querySelector('#file-name');
 const fileStatus = document.querySelector('#file-status');
 const metadata = document.querySelector('#metadata');
+const projectMetadata = document.querySelector('#project-metadata');
+const tableStatus = document.querySelector('#table-status');
+
+function projectName(fileName) {
+  return fileName.replace(/\.dwg$/i, '');
+}
+
+function renderProjectMetadata(file, result) {
+  const rows = [
+    ['Projeto', projectName(file.name)],
+    ['Versão do AutoCAD', result.versionLabel],
+    ['Formato', result.format],
+    ['Tamanho', result.sizeLabel],
+    ['Assinatura', result.signature],
+    ['Status', 'Cabeçalho validado']
+  ];
+
+  projectMetadata.innerHTML = rows
+    .map(([label, value]) => `<tr><th>${label}</th><td>${value}</td></tr>`)
+    .join('');
+}
 
 input.addEventListener('change', async () => {
   const [file] = input.files;
@@ -23,15 +44,18 @@ input.addEventListener('change', async () => {
     if (!response.ok) throw new Error(result.error);
 
     fileStatus.textContent = 'Arquivo reconhecido';
+    tableStatus.textContent = 'LEITURA CONCLUÍDA';
     metadata.innerHTML = [
       ['Formato', result.format],
       ['Versão', result.versionLabel],
       ['Tamanho', result.sizeLabel],
       ['Assinatura', result.signature]
     ].map(([label, value]) => `<div><dt>${label}</dt><dd>${value}</dd></div>`).join('');
+    renderProjectMetadata(file, result);
     message.textContent = result.message;
   } catch (error) {
     fileStatus.textContent = 'Falha na leitura';
+    tableStatus.textContent = 'ERRO NA LEITURA';
     message.textContent = error.message;
   }
 });
